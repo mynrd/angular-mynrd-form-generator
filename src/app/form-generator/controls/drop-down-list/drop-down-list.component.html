@@ -1,0 +1,32 @@
+<!-- <div fxLayout="row"
+     fxLayoutAlign="center">
+    <div fxFlex>
+     
+    </div>
+    <div fxFlex="80px">
+      
+    </div>
+</div> -->
+<div class="form-generator-control">
+    <div class="control-box"
+         *ngIf="!actualControl">
+        {{data.controlDescription}} - {{data.controlName}} - {{data.label}}
+
+        <app-control-action-button *ngIf="!actualControl"
+                                   [data]="data"
+                                   (deleteControl)="onDeleteControl($event)"
+                                   (openSettings)="openSettings()"></app-control-action-button>
+    </div>
+    <div class="form-generator-control-content"
+         *ngIf="actualControl">
+        <mat-form-field [id]="data.controlId">
+            <mat-label *ngIf="data.label !== ''">{{data.label}}</mat-label>
+
+            <mat-select [required]="data.configDropDownList.required">
+                <mat-option *ngFor="let item of data.configDropDownList.dataSource"
+                            [value]="item.value">{{item.text}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+
+</div>

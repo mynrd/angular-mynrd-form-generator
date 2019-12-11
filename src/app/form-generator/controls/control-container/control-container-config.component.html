@@ -1,0 +1,44 @@
+<h1 mat-dialog-title>Text Box Configuration</h1>
+<div mat-dialog-content>
+    <p>
+        <mat-form-field>
+            <mat-label>Input Type</mat-label>
+            <mat-select [(ngModel)]="tempItem.inputType">
+                <mat-option *ngFor="let item of inputTypeList"
+                            [value]="item.value">
+                    {{item.text}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field appearance="legacy">
+            <mat-label>Control Name</mat-label>
+            <input matInput
+                   [(ngModel)]="tempItem.controlName">
+        </mat-form-field>
+    </p>
+
+    <p>
+        <mat-form-field appearance="legacy">
+            <mat-label>Label</mat-label>
+            <input matInput
+                   [(ngModel)]="tempItem.label">
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-checkbox [(ngModel)]="tempItem.required">Required?</mat-checkbox>
+    </p>
+    <p>
+        <mat-form-field appearance="legacy">
+            <mat-label>Placeholder</mat-label>
+            <input matInput
+                   [(ngModel)]="tempItem.placeholder">
+        </mat-form-field>
+    </p>
+</div>
+<div mat-dialog-actions>
+    <button mat-button
+            (click)="saveConfig()"
+            cdkFocusInitial>Save Configuration</button>
+</div>

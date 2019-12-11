@@ -1,0 +1,84 @@
+<div class="panel-box">
+    <div class="panel-box-header">
+        Testing
+    </div>
+    <div class="panel-box-content">
+
+        <div fxLayout="row">
+            <div fxFlex
+                 style="padding: 10px;">
+                <h3>Design Form
+                </h3>
+                <div class="form-generator">
+                    <div class="action-btn ">
+                        <div class="action-btn-content clearfix">
+
+                            <button class="add-btn"
+                                    color="primary"
+                                    (click)="onAddControl(formService.getControlList)">
+                                <mat-icon>note_add</mat-icon>
+                            </button>
+
+                            <button class="reorder-btn"
+                                    color="warn">
+                                <mat-icon>reorder</mat-icon>
+                            </button>
+
+                        </div>
+                    </div>
+                    <div *ngFor="let item of formService.getControlList">
+                        <app-text-box *ngIf="item.controlType === controls.textbox.name"
+                                      [controlList]="formService.getControlList"
+                                      (deleteControl)="onDeleteControl($event)"
+                                      [data]="item"></app-text-box>
+                        <app-check-box *ngIf="item.controlType === controls.checkbox.name"
+                                       [controlList]="formService.getControlList"
+                                       (deleteControl)="onDeleteControl($event)"
+                                       [data]="item"></app-check-box>
+                        <app-drop-down-list *ngIf="item.controlType === controls.dropdownlist.name"
+                                            [controlList]="formService.getControlList"
+                                            (deleteControl)="onDeleteControl($event)"
+                                            [data]="item"></app-drop-down-list>
+                        <app-text-container *ngIf="item.controlType === controls.textContainer.name"
+                                            [controlList]="formService.getControlList"
+                                            (deleteControl)="onDeleteControl($event)"
+                                            [data]="item"></app-text-container>
+                        <app-control-container *ngIf="item.controlType === controls.controlContainer.name"
+                                               [controlList]="formService.getControlList"
+                                               (deleteControl)="onDeleteControl($event)"
+                                               (addControl)="onAddControl($event)"
+                                               [data]="item"></app-control-container>
+                    </div>
+                </div>
+            </div>
+            <div fxFlex
+                 style="padding: 10px;">
+                <h3>Preview Form</h3>
+                <mat-card class="preview-form">
+                    <div *ngFor="let item of formService.getControlList">
+                        <app-text-box *ngIf="item.controlType === controls.textbox.name"
+                                      [actualControl]="true"
+                                      [data]="item"></app-text-box>
+                        <app-check-box *ngIf="item.controlType === controls.checkbox.name"
+                                       [actualControl]="true"
+                                       [data]="item"></app-check-box>
+                        <app-drop-down-list *ngIf="item.controlType === controls.dropdownlist.name"
+                                            [actualControl]="true"
+                                            [data]="item"></app-drop-down-list>
+                        <app-text-container *ngIf="item.controlType === controls.textContainer.name"
+                                            [actualControl]="true"
+                                            [data]="item"></app-text-container>
+                        <app-control-container *ngIf="item.controlType === controls.controlContainer.name"
+                                               [actualControl]="true"
+                                               [data]="item"></app-control-container>
+                    </div>
+                    <div>
+                        <hr />
+                        <h3>Schema</h3>
+                        <pre>{{formService.getControlList | json}}</pre>
+                    </div>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+<div class="form-generator-control">
+
+    <div class="form-generator-control-content">
+        <div class="control-box"
+             *ngIf="!actualControl">
+            <div style="width: 100%; float: left;">{{data.controlDescription}} - {{data.controlName}}
+                <div *ngIf="(data.controlContainers || []).length === 0">
+                    Check Settings to add Columns to Container
+                </div>
+                <div fxLayout="row">
+                    <div fxFlex
+                         *ngFor="let item of (data.controlContainers || [])">
+                        <mat-card class="mat-card-app-container-box">
+                            <app-container-box (addControl)="onAddControl($event)"
+                                               (deleteControl)="onDeleteChildControl($event)"
+                                               [data]="item"></app-container-box>
+                        </mat-card>
+                    </div>
+                </div>
+            </div>
+            <app-control-action-button *ngIf="!actualControl"
+                                       [hideSetting]="true"
+                                       [data]="data"
+                                       (deleteControl)="onDeleteControl($event)"
+                                       (openSettings)="openSettings()">
+                <button mat-icon-button
+                        (click)="addColumn()">
+                    <mat-icon>add</mat-icon>
+                </button>
+            </app-control-action-button>
+
+        </div>
+
+        <div *ngIf="actualControl">
+
+            <div fxLayout="row">
+                <div fxFlex
+                     *ngFor="let item of (data.controlContainers || [])">
+                    <mat-card class="mat-card-app-container-box">
+                        <app-container-box (addControl)="onAddControl($event)"
+                                           (deleteControl)="onDeleteChildControl($event)"
+                                           [actualControl]="actualControl"
+                                           [data]="item"></app-container-box>
+                    </mat-card>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

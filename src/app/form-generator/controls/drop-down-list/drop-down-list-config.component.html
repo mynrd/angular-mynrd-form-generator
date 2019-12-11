@@ -1,0 +1,113 @@
+<h1 mat-dialog-title>Drop Down List Configuration</h1>
+<div mat-dialog-content>
+
+    <mat-tab-group>
+        <mat-tab label="General">
+            <p>
+                <mat-form-field>
+                    <mat-label>User Api Url</mat-label>
+                    <mat-select [(ngModel)]="tempItem.useApiUrl">
+                        <mat-option [value]="true">
+                            Yes
+                        </mat-option>
+                        <mat-option [value]="false">
+                            No
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field appearance="legacy">
+                    <mat-label>Control Name</mat-label>
+                    <input matInput
+                           [(ngModel)]="tempItem.controlName">
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field appearance="legacy">
+                    <mat-label>Label</mat-label>
+                    <input matInput
+                           [(ngModel)]="tempItem.label">
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-checkbox [(ngModel)]="tempItem.required">Required?</mat-checkbox>
+            </p>
+
+            <p *ngIf="tempItem.useApiUrl">
+                <mat-form-field appearance="legacy">
+                    <mat-label>API Url</mat-label>
+                    <input matInput
+                           [(ngModel)]="tempItem.apiUrl">
+                </mat-form-field>
+            </p>
+        </mat-tab>
+
+        <mat-tab label="Data Source"
+                 *ngIf="!tempItem.useApiUrl">
+            <p>Update Data Source</p>
+
+            <button mat-raised-button
+                    (click)="addNewRow()"> Insert Row </button>
+            <br />
+            <br />
+            <table mat-table
+                   [dataSource]="dataSource"
+                   class="mat-elevation-z8"
+                   style="width:100%">
+                <ng-container matColumnDef="value">
+                    <th mat-header-cell
+                        *matHeaderCellDef>Value</th>
+                    <td mat-cell
+                        *matCellDef="let element">
+                        <mat-form-field>
+                            <input matInput
+                                   [(ngModel)]="element.value">
+                        </mat-form-field>
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="text">
+                    <th mat-header-cell
+                        *matHeaderCellDef>Text</th>
+                    <td mat-cell
+                        *matCellDef="let element">
+                        <mat-form-field>
+                            <input matInput
+                                   [(ngModel)]="element.text">
+                        </mat-form-field>
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="action">
+                    <th mat-header-cell
+                        *matHeaderCellDef></th>
+                    <td mat-cell
+                        *matCellDef="let element"
+                        style="padding-right: 0;">
+                        <button mat-icon-button>
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row
+                    *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row
+                    *matRowDef="let row; columns: displayedColumns;"></tr>
+
+            </table>
+
+        </mat-tab>
+    </mat-tab-group>
+</div>
+<div mat-dialog-actions>
+    <button mat-button
+            (click)="saveConfig()"
+            cdkFocusInitial>Save Configuration</button>
+    <p *ngIf="messageInfo!== ''"
+       style="color: red;">
+        {{messageInfo}}
+    </p>
+</div>

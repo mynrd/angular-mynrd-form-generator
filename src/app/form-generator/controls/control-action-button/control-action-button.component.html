@@ -1,0 +1,12 @@
+<button mat-icon-button
+        *ngIf="!hideDelete"
+        (click)="onDeleteControl()">
+    <mat-icon>delete</mat-icon>
+</button>
+<button mat-icon-button
+        *ngIf="!hideSetting"
+        (click)="onOpenSettings()">
+    <mat-icon>settings_applications</mat-icon>
+</button>
+<ng-content></ng-content>
+<span class="clear"></span>

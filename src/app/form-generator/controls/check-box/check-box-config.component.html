@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>Check Box Configuration</h1>
+<div mat-dialog-content>
+    <p>
+        <mat-form-field appearance="legacy">
+            <mat-label>Control Name</mat-label>
+            <input matInput
+                   [(ngModel)]="tempItem.controlName">
+        </mat-form-field>
+    </p>
+
+    <p>
+        <mat-form-field appearance="legacy">
+            <mat-label>Label</mat-label>
+            <input matInput
+                   [(ngModel)]="tempItem.label">
+        </mat-form-field>
+    </p>
+</div>
+<div mat-dialog-actions>
+    <button mat-button
+            (click)="saveConfig()"
+            cdkFocusInitial>Done</button>
+</div>

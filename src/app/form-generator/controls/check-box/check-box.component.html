@@ -1,0 +1,15 @@
+<div class="form-generator-control">
+    <div class="control-box"
+         *ngIf="!actualControl">
+        {{data.controlDescription}} - {{data.controlName}} - {{data.label}}
+
+        <app-control-action-button *ngIf="!actualControl"
+                                   [data]="data"
+                                   (deleteControl)="onDeleteControl($event)"
+                                   (openSettings)="openSettings()"></app-control-action-button>
+    </div>
+    <div class="form-generator-control-content"
+         *ngIf="actualControl">
+        <mat-checkbox [id]="data.controlName">{{data.label}}</mat-checkbox>
+    </div>
+</div>

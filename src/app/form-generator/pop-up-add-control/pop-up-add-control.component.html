@@ -1,0 +1,13 @@
+<h3>
+    Available Controls
+</h3>
+
+<div>
+    <ul class="available-controls">
+        <li *ngFor="let item of availableControl">
+            <button mat-button [mat-dialog-close]="item">
+                {{item.description}}
+            </button>
+        </li>
+    </ul>
+</div>

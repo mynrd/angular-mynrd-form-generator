@@ -1,0 +1,67 @@
+<div *ngIf="!actualControl">
+    <div class="action-btn">
+        <div class="action-btn-content clearfix">
+
+            <button class="add-btn"
+                    color="primary"
+                    (click)="onAddControl()">
+                <mat-icon>note_add</mat-icon>
+            </button>
+
+            <button class="reorder-btn"
+                    color="warn">
+                <mat-icon>reorder</mat-icon>
+            </button>
+
+        </div><span class="clear"></span>
+    </div>
+</div>
+<div *ngIf="!actualControl">
+
+    <div class="control-list"
+         *ngFor="let item of (data.controlList || [])">
+
+        <app-text-box *ngIf="item.controlType === controls.textbox.name"
+                      [controlList]="data.controlList"
+                      (deleteControl)="onDeleteControl($event)"
+                      [data]="item"></app-text-box>
+        <app-check-box *ngIf="item.controlType === controls.checkbox.name"
+                       [controlList]="data.controlList"
+                       (deleteControl)="onDeleteControl($event)"
+                       [data]="item"></app-check-box>
+        <app-drop-down-list *ngIf="item.controlType === controls.dropdownlist.name"
+                            [controlList]="data.controlList"
+                            (deleteControl)="onDeleteControl($event)"
+                            [data]="item"></app-drop-down-list>
+        <app-text-container *ngIf="item.controlType === controls.textContainer.name"
+                            [controlList]="data.controlList"
+                            (deleteControl)="onDeleteControl($event)"
+                            [data]="item"></app-text-container>
+        <app-control-container *ngIf="item.controlType === controls.controlContainer.name"
+                               [controlList]="data.controlList"
+                               (deleteControl)="onDeleteControl($event)"
+                               (addControl)="onAddControl($event)"
+                               [data]="item"></app-control-container>
+
+    </div>
+</div>
+<div *ngIf="actualControl">
+    <div *ngFor="let item of (data.controlList || [])">
+        <app-text-box *ngIf="item.controlType === controls.textbox.name"
+                      [actualControl]="true"
+                      [data]="item"></app-text-box>
+        <app-check-box *ngIf="item.controlType === controls.checkbox.name"
+                       [actualControl]="true"
+                       [data]="item"></app-check-box>
+        <app-drop-down-list *ngIf="item.controlType === controls.dropdownlist.name"
+                            [actualControl]="true"
+                            [data]="item"></app-drop-down-list>
+        <app-text-container *ngIf="item.controlType === controls.textContainer.name"
+                            [actualControl]="true"
+                            [data]="item"></app-text-container>
+        <app-control-container *ngIf="item.controlType === controls.controlContainer.name"
+                               [actualControl]="true"
+                               [data]="item"></app-control-container>
+    </div>
+
+</div>

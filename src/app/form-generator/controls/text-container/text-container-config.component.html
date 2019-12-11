@@ -1,0 +1,25 @@
+<h1 mat-dialog-title>Drop Down List Configuration</h1>
+<div mat-dialog-content>
+    <p>
+        <mat-form-field>
+            <mat-label>Container Type</mat-label>
+            <mat-select [(ngModel)]="tempItem.containerType">
+                <mat-option *ngFor="let item of containerTypeSource"
+                            [value]="item.value">{{item.text}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </p>
+
+    <p>
+        <mat-form-field appearance="legacy">
+            <mat-label>Content</mat-label>
+            <input matInput
+                   [(ngModel)]="tempItem.content">
+        </mat-form-field>
+    </p>
+</div>
+<div mat-dialog-actions>
+    <button mat-button
+            (click)="saveConfig()"
+            cdkFocusInitial>Save Configuration</button>
+</div>

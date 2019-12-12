@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { ConfigControlContainer, FormControlModel } from 'src/app/form-generator/models/form-control.model';
-import { FormService } from 'src/app/form-generator/form-service.p';
-import { AvailableFormControlModel } from 'src/app/form-generator/models/form-control-static';
+import { ConfigControlContainer, FormControlModel } from '../../../../form-generator/models/form-control.model';
+import { FormService } from '../../../../form-generator/form-service.p';
+import { AvailableFormControlModel } from '../../../../form-generator/models/form-control-static';
 
 @Component({
   selector: 'app-container-box',

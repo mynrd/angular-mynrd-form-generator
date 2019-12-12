@@ -6,7 +6,6 @@ import { LayoutSampleComponent } from './layout-sample/layout-sample.component';
 
 const appRoutes: Routes = [
   { path: '', component: FormGeneratorComponent },
-  { path: 'layoutsample', component: LayoutSampleComponent },
 ];
 
 @NgModule({

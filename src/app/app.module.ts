@@ -17,7 +17,6 @@ import { FormsModule } from '@angular/forms';
 import { CheckBoxConfigComponent } from './form-generator/controls/check-box/check-box-config.component';
 import { DropDownListConfigComponent } from './form-generator/controls/drop-down-list/drop-down-list-config.component';
 import { DialogMessageComponent } from './shared/dialog-confirmation/dialog-message.component';
-import { LayoutSampleComponent } from './layout-sample/layout-sample.component';
 
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { TextContainerComponent } from './form-generator/controls/text-container/text-container.component';
@@ -44,7 +43,6 @@ import { ContainerBoxComponent } from './form-generator/controls/control-contain
     DropDownListComponent,
     ControlActionButtonComponent,
     DialogMessageComponent,
-    LayoutSampleComponent,
     TextContainerComponent,
     ControlContainerComponent,
     ContainerBoxComponent

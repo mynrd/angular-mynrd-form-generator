@@ -65,30 +65,36 @@
             </div>
             <div fxFlex="50"
                  style="padding: 10px;">
-                <h3>Preview Form</h3>
+                <h3>Preview</h3>
                 <mat-card class="preview-form">
-                    <div *ngFor="let item of formService.controlList">
-                        <app-text-box *ngIf="item.controlType === controls.textbox.name"
-                                      [actualControl]="true"
-                                      [data]="item"></app-text-box>
-                        <app-check-box *ngIf="item.controlType === controls.checkbox.name"
-                                       [actualControl]="true"
-                                       [data]="item"></app-check-box>
-                        <app-drop-down-list *ngIf="item.controlType === controls.dropdownlist.name"
-                                            [actualControl]="true"
-                                            [data]="item"></app-drop-down-list>
-                        <app-text-container *ngIf="item.controlType === controls.textContainer.name"
-                                            [actualControl]="true"
-                                            [data]="item"></app-text-container>
-                        <app-control-container *ngIf="item.controlType === controls.controlContainer.name"
+                    <mat-card>
+                        <h4>Form</h4>
+                        <hr>
+                        <mat-card>
+                            <div *ngFor="let item of formService.controlList">
+                                <app-text-box *ngIf="item.controlType === controls.textbox.name"
+                                              [actualControl]="true"
+                                              [data]="item"></app-text-box>
+                                <app-check-box *ngIf="item.controlType === controls.checkbox.name"
                                                [actualControl]="true"
-                                               [data]="item"></app-control-container>
-                    </div>
-                    <div>
-                        <hr />
+                                               [data]="item"></app-check-box>
+                                <app-drop-down-list *ngIf="item.controlType === controls.dropdownlist.name"
+                                                    [actualControl]="true"
+                                                    [data]="item"></app-drop-down-list>
+                                <app-text-container *ngIf="item.controlType === controls.textContainer.name"
+                                                    [actualControl]="true"
+                                                    [data]="item"></app-text-container>
+                                <app-control-container *ngIf="item.controlType === controls.controlContainer.name"
+                                                       [actualControl]="true"
+                                                       [data]="item"></app-control-container>
+                            </div>
+                        </mat-card>
+                    </mat-card>
+                    <mat-card>
                         <h3>Schema</h3>
+                        <hr />
                         <pre>{{formService.controlList | json}}</pre>
-                    </div>
+                    </mat-card>
                 </mat-card>
             </div>
         </div>

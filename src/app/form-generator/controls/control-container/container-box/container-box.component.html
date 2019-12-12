@@ -2,14 +2,16 @@
     <div class="action-btn">
         <div class="action-btn-content clearfix">
 
-            <button class="add-btn"
+            <button mat-icon-button
+                    class="add-btn"
                     color="primary"
                     [disabled]="enableReorderControl"
                     (click)="onAddControlItem()">
                 <mat-icon>note_add</mat-icon>
             </button>
 
-            <button class="reorder-btn"
+            <button mat-icon-button
+                    class="reorder-btn"
                     color="warn"
                     [disabled]="enableReorderControl"
                     (click)="reorderControls()">

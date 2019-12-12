@@ -28,12 +28,13 @@ export class ConfigTextBox {
 }
 
 export class ConfigControlContainer {
+    public controlContainerId: string;
     public controlList: FormControlModel[];
     constructor() {
         this.controlList = [];
     }
 
-    public addControl(control: FormControlModel) {
+    public addControlItem(control: FormControlModel) {
         this.controlList.push(control);
     }
 }

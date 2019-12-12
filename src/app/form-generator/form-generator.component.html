@@ -1,11 +1,12 @@
-<div class="panel-box" style="padding-left: 10px;">
+<div class="panel-box"
+     style="padding-left: 10px;">
     <div class="panel-box-header">
-       <h2> Form Generator</h2>
+        <h2> Form Generator</h2>
     </div>
     <div class="panel-box-content">
 
         <div fxLayout="row">
-            <div fxFlex
+            <div fxFlex="50"
                  style="padding: 10px;">
                 <h3>Design Form
                 </h3>
@@ -15,7 +16,7 @@
 
                             <button class="add-btn"
                                     color="primary"
-                                    (click)="onAddControl(formService.getControlList)">
+                                    (click)="onAddControlItem(formService.getControlList)">
                                 <mat-icon>note_add</mat-icon>
                             </button>
 
@@ -46,12 +47,12 @@
                         <app-control-container *ngIf="item.controlType === controls.controlContainer.name"
                                                [controlList]="formService.getControlList"
                                                (deleteControl)="onDeleteControl($event)"
-                                               (addControl)="onAddControl($event)"
+                                               (addControlItem)="onAddControlItem($event)"
                                                [data]="item"></app-control-container>
                     </div>
                 </div>
             </div>
-            <div fxFlex
+            <div fxFlex="50"
                  style="padding: 10px;">
                 <h3>Preview Form</h3>
                 <mat-card class="preview-form">

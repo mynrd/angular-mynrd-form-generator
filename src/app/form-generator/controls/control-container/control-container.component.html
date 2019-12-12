@@ -11,9 +11,7 @@
                     <div fxFlex
                          *ngFor="let item of (data.controlContainers || [])">
                         <mat-card class="mat-card-app-container-box">
-                            <app-container-box (addControl)="onAddControl($event)"
-                                               (deleteControl)="onDeleteChildControl($event)"
-                                               [data]="item"></app-container-box>
+                            <app-container-box [data]="item"></app-container-box>
                         </mat-card>
                     </div>
                 </div>
@@ -37,9 +35,7 @@
                 <div fxFlex
                      *ngFor="let item of (data.controlContainers || [])">
                     <mat-card class="mat-card-app-container-box">
-                        <app-container-box (addControl)="onAddControl($event)"
-                                           (deleteControl)="onDeleteChildControl($event)"
-                                           [actualControl]="actualControl"
+                        <app-container-box [actualControl]="actualControl"
                                            [data]="item"></app-container-box>
                     </mat-card>
                 </div>

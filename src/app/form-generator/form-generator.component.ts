@@ -28,35 +28,15 @@ export class FormGeneratorComponent implements OnInit {
   ngOnInit() {
   }
 
-  onAddControl(controlList: FormControlModel[]): void {
-    const dialogRef = this.dialog.open(PopUpAddControlComponent, {
-      width: '500px'
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      if (result != undefined) {
-        let data = this.formService.addControl(result);
-        controlList.push(data);
-      }
-    });
+  onAddControlItem(controlList: FormControlModel[]): void {
+    this.formService.addControl(controlList);
   }
 
   onDeleteControl(data: {
     controlList: FormControlModel[],
     control: FormControlModel
   }): void {
-    let message = new DialogModel("Confirmation", "Continue Delete?");
-
-    const dialogRef = this.dialog.open(DialogMessageComponent, {
-      width: '500px',
-      data: message
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      const index = data.controlList.indexOf(data.control);
-      data.controlList.splice(index, 1);
-    });
-
+    this.formService.deleteControl(data.control, data.controlList);
   }
 
 }

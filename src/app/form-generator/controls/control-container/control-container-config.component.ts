@@ -12,11 +12,9 @@ export class ControlContainerTemp {
 })
 export class ControlContainerConfigComponent implements OnInit {
 
-
     constructor(
         public dialogRef: MatDialogRef<ControlContainerConfigComponent>,
         @Inject(MAT_DIALOG_DATA) public data: FormControlModel) {
-
     }
 
     ngOnInit() {

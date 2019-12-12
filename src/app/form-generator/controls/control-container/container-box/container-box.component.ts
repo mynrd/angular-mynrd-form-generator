@@ -1,18 +1,19 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, } from '@angular/core';
 import { ConfigControlContainer, FormControlModel } from '../../../../form-generator/models/form-control.model';
 import { FormService } from '../../../../form-generator/form-service.p';
 import { AvailableFormControlModel } from '../../../../form-generator/models/form-control-static';
+import { Subscription } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { PopUpAddControlComponent } from 'src/app/form-generator/pop-up-add-control/pop-up-add-control.component';
 
 @Component({
   selector: 'app-container-box',
   templateUrl: './container-box.component.html',
   styleUrls: ['./container-box.component.scss']
 })
-export class ContainerBoxComponent implements OnInit {
+export class ContainerBoxComponent {
   @Input() data: ConfigControlContainer;
   @Input() actualControl: boolean;
-  @Output() addControl = new EventEmitter<FormControlModel[]>();
-  @Output() deleteControl = new EventEmitter<any>();
 
   controls: any = {
     textbox: AvailableFormControlModel,
@@ -22,22 +23,24 @@ export class ContainerBoxComponent implements OnInit {
     controlContainer: AvailableFormControlModel,
   }
 
-  constructor(public formService: FormService) {
+
+  constructor(public formService: FormService, public dialog: MatDialog) {
     this.controls = this.formService.getStaticControls();
   }
 
-  ngOnInit() {
+  onReOrder(): void {
+    console.log("onReOrder");
   }
 
-  onAddControl(): void {
-    this.addControl.emit(this.data.controlList);
+  onAddControlItem(): void {
+    this.formService.addControl(this.data.controlList);
   }
 
   onDeleteControl(data: {
     controlList: FormControlModel[],
     control: FormControlModel
   }): void {
-    this.deleteControl.emit(data);
+    this.formService.deleteControl(data.control, data.controlList);
   }
 
 }

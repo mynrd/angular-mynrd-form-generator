@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { FormService } from '../form-service.p';
-import { FormControlModel } from '../models/form-control.model';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormControlWidget } from '../models/form-control-widget';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-pop-up-add-control',
@@ -10,13 +9,10 @@ import { FormControlWidget } from '../models/form-control-widget';
 })
 export class PopUpAddControlComponent implements OnInit {
 
-  availableControl: FormControlWidget[] = [];
-  data: {
-    message: string
-  }
+  availableControls: FormControlWidget[];
 
-  constructor(formService: FormService) {
-    this.availableControl = formService.getAvailableControls();
+  constructor(@Inject(MAT_DIALOG_DATA) data: FormControlWidget[]) {
+    this.availableControls = data;
   }
 
   ngOnInit() {

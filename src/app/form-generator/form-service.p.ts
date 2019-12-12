@@ -1,12 +1,19 @@
 import { FormControlModel, ValueText, ConfigTextContainer } from './models/form-control.model';
 import { FormControlWidget } from './models/form-control-widget';
 import { FormControlStatic, AvailableFormControlModel } from './models/form-control-static';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogModel, DialogMessageComponent } from '../shared/dialog-confirmation/dialog-message.component';
+import { PopUpAddControlComponent } from './pop-up-add-control/pop-up-add-control.component';
+import { Injectable } from '@angular/core';
 
+@Injectable({
+    providedIn: 'root'
+})
 export class FormService {
     private availableControls: FormControlWidget[] = [];
     private controlList: FormControlModel[] = [];
 
-    constructor() {
+    constructor(public dialog: MatDialog) {
         this.availableControls.push(this.convertToFormControlWidget(FormControlStatic.CheckBox));
         this.availableControls.push(this.convertToFormControlWidget(FormControlStatic.TextBox));
         this.availableControls.push(this.convertToFormControlWidget(FormControlStatic.DropDownList));
@@ -36,7 +43,36 @@ export class FormService {
         return result;
     }
 
-    public addControl(widget: FormControlWidget): FormControlModel {
+    public deleteControl(control: FormControlModel, controlList: FormControlModel[]): void {
+        let message = new DialogModel("Confirmation", "Continue Delete?");
+
+        const dialogRef = this.dialog.open(DialogMessageComponent, {
+            width: '500px',
+            data: message
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+            const index = controlList.indexOf(control);
+            controlList.splice(index, 1);
+        });
+    }
+
+    public addControl(controlList: FormControlModel[]): void {
+        let availableControl = this.getAvailableControls();
+        const dialogRef = this.dialog.open(PopUpAddControlComponent, {
+            width: '500px',
+            data: availableControl
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+            if (result != undefined) {
+                let data = this.createControl(result);
+                controlList.push(data);
+            }
+        });
+    }
+
+    public createControl(widget: FormControlWidget): FormControlModel {
         if (widget === null || widget == undefined) {
             return;
         }

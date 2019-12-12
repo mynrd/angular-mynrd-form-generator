@@ -1,24 +1,22 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FormControlModel, ConfigControlContainer } from '../../models/form-control.model';
 import { MatDialog } from '@angular/material/dialog';
 import { ControlContainerConfigComponent } from './control-container-config.component';
+import { FormService } from '../../form-service.p';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-control-container',
   templateUrl: './control-container.component.html',
   styleUrls: ['./control-container.component.scss']
 })
-export class ControlContainerComponent implements OnInit {
+export class ControlContainerComponent  {
   @Input() data: FormControlModel;
   @Input() actualControl: boolean;
   @Input() controlList: FormControlModel[];
-  @Output() addControl = new EventEmitter<FormControlModel[]>();
   @Output() public deleteControl: EventEmitter<any> = new EventEmitter();
 
-  constructor(public dialog: MatDialog) { }
-
-  ngOnInit() {
-  }
+  constructor(public dialog: MatDialog, public formService: FormService) { }
 
   openSettings(): void {
     const dialogRef = this.dialog.open(ControlContainerConfigComponent, {
@@ -28,10 +26,6 @@ export class ControlContainerComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
     });
-  }
-
-  onAddControl(controls: FormControlModel[]): void {
-    this.addControl.emit(controls);
   }
 
   onDeleteControl(control: FormControlModel): void {
@@ -52,6 +46,7 @@ export class ControlContainerComponent implements OnInit {
   addColumn(): void {
     let container = new ConfigControlContainer();
     container.controlList = [];
+    container.controlContainerId = "container_" + this.formService.makeid(10);
     if (this.data.controlContainers == undefined)
       this.data.controlContainers = [];
 

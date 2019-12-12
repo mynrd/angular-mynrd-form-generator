@@ -4,7 +4,7 @@
 
 <div>
     <ul class="available-controls">
-        <li *ngFor="let item of availableControl">
+        <li *ngFor="let item of availableControls">
             <button mat-button [mat-dialog-close]="item">
                 {{item.description}}
             </button>

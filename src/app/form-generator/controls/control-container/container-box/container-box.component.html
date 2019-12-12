@@ -4,12 +4,14 @@
 
             <button class="add-btn"
                     color="primary"
-                    (click)="onAddControl()">
+                    (click)="onAddControlItem()">
                 <mat-icon>note_add</mat-icon>
             </button>
 
             <button class="reorder-btn"
-                    color="warn">
+                    color="warn"
+                    (click)="onReOrder()"
+                    >
                 <mat-icon>reorder</mat-icon>
             </button>
 
@@ -17,7 +19,7 @@
     </div>
 </div>
 <div *ngIf="!actualControl">
-
+    <p>{{data.controlContainerId}}</p>
     <div class="control-list"
          *ngFor="let item of (data.controlList || [])">
 
@@ -40,7 +42,7 @@
         <app-control-container *ngIf="item.controlType === controls.controlContainer.name"
                                [controlList]="data.controlList"
                                (deleteControl)="onDeleteControl($event)"
-                               (addControl)="onAddControl($event)"
+                               (addControlItem)="onAddControlItem($event)"
                                [data]="item"></app-control-container>
 
     </div>

@@ -30,7 +30,13 @@ export class ConfigTextBox {
 export class ConfigControlContainer {
     public controlContainerId: string;
     public controlList: FormControlModel[];
+    public wrappedWith: string;
+    public panelTitle: string;
+    public panelDescription: string;
+    public panelExpanded: boolean;
+
     constructor() {
+        this.wrappedWith = "div";
         this.controlList = [];
     }
 
@@ -38,6 +44,7 @@ export class ConfigControlContainer {
         this.controlList.push(control);
     }
 }
+
 
 export class ConfigDropDownList {
     public dataSource: ValueText[] = []

@@ -1,6 +1,6 @@
-<div class="form-generator-control">
-    <div class="control-box"
-         *ngIf="!actualControl">
+<div class="form-generator-control"
+     *ngIf="!actualControl">
+    <div [ngClass]="{'control-box': !actualControl}">
         <!-- {{data.controlDescription}} - {{this.data.configTextContainer.containerType}} -
         {{this.data.configTextContainer.content}} -->
 
@@ -21,17 +21,17 @@
     </div>
 
 
-    <div class="form-generator-control-content"
-         style="min-height: 20px; "
-         *ngIf="actualControl">
-        <mat-label *ngIf="isContentType('mat-label')">{{this.data.configTextContainer.content}}</mat-label>
-        <h1 *ngIf="isContentType('h1')">{{this.data.configTextContainer.content}}</h1>
-        <h2 *ngIf="isContentType('h2')">{{this.data.configTextContainer.content}}</h2>
-        <h3 *ngIf="isContentType('h3')">{{this.data.configTextContainer.content}}</h3>
-        <h4 *ngIf="isContentType('h4')">{{this.data.configTextContainer.content}}</h4>
-        <h5 *ngIf="isContentType('h5')">{{this.data.configTextContainer.content}}</h5>
-    </div>
-
     <span class="clear"></span>
 
+</div>
+
+<div class="form-generator-control-content"
+     style="min-height: 20px; "
+     *ngIf="actualControl">
+    <mat-label *ngIf="isContentType('mat-label')">{{this.data.configTextContainer.content}}</mat-label>
+    <h1 *ngIf="isContentType('h1')">{{this.data.configTextContainer.content}}</h1>
+    <h2 *ngIf="isContentType('h2')">{{this.data.configTextContainer.content}}</h2>
+    <h3 *ngIf="isContentType('h3')">{{this.data.configTextContainer.content}}</h3>
+    <h4 *ngIf="isContentType('h4')">{{this.data.configTextContainer.content}}</h4>
+    <h5 *ngIf="isContentType('h5')">{{this.data.configTextContainer.content}}</h5>
 </div>

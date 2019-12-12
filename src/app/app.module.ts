@@ -23,8 +23,10 @@ import { TextContainerComponent } from './form-generator/controls/text-container
 import { TextContainerConfigComponent } from './form-generator/controls/text-container/text-container-config.component';
 import { ControlContainerComponent } from './form-generator/controls/control-container/control-container.component';
 import { ControlContainerConfigComponent } from './form-generator/controls/control-container/control-container-config.component';
-import { ContainerBoxComponent } from './form-generator/controls/control-container/container-box/container-box.component';
+import { ContainerBoxComponent, ContainerBoxControlComponent } from './form-generator/controls/control-container/container-box/container-box.component';
 import { ControlOrderingComponent } from './form-generator/control-ordering/control-ordering.component';
+import { PanelContainerComponent } from './form-generator/controls/panel-container/panel-container.component';
+import { ContainerBoxConfigComponent } from './form-generator/controls/control-container/container-box/container-box-config.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,7 @@ import { ControlOrderingComponent } from './form-generator/control-ordering/cont
     TextContainerConfigComponent,
     ControlContainerConfigComponent,
     DialogMessageComponent,
+    ContainerBoxConfigComponent,
 
     TextBoxComponent,
     CheckBoxComponent,
@@ -47,7 +50,9 @@ import { ControlOrderingComponent } from './form-generator/control-ordering/cont
     TextContainerComponent,
     ControlContainerComponent,
     ContainerBoxComponent,
-    ControlOrderingComponent
+    ControlOrderingComponent,
+    PanelContainerComponent,
+    ContainerBoxControlComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +70,8 @@ import { ControlOrderingComponent } from './form-generator/control-ordering/cont
     DropDownListConfigComponent,
     TextContainerConfigComponent,
     ControlContainerConfigComponent,
-    ControlOrderingComponent
+    ControlOrderingComponent,
+    ContainerBoxConfigComponent
   ],
   providers: [FormService],
   bootstrap: [AppComponent]

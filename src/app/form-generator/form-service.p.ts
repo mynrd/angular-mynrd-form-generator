@@ -1,4 +1,4 @@
-import { FormControlModel, ValueText, ConfigTextContainer } from './models/form-control.model';
+import { FormControlModel, ValueText, ConfigTextContainer, ConfigControlContainer } from './models/form-control.model';
 import { FormControlWidget } from './models/form-control-widget';
 import { FormControlStatic, AvailableFormControlModel } from './models/form-control-static';
 import { MatDialog } from '@angular/material/dialog';
@@ -85,6 +85,11 @@ export class FormService {
                 break;
             case FormControlStatic.ControlContainer.name:
                 data.controlDescription = FormControlStatic.ControlContainer.description;
+
+                let container = new ConfigControlContainer();
+                container.wrappedWith = "div";
+                data.controlContainers = [];
+                data.controlContainers.push(container);
                 break;
             case FormControlStatic.DropDownList.name:
                 data.controlDescription = FormControlStatic.DropDownList.description;

@@ -1,8 +1,7 @@
-<div class="form-generator-control">
-
+<div class="form-generator-control"
+     *ngIf="!actualControl">
     <div class="form-generator-control-content">
-        <div class="control-box"
-             *ngIf="!actualControl">
+        <div [ngClass]="{'control-box': !actualControl}">
             <div style="width: 100%; float: left;">
                 <div *ngIf="(data.controlContainers || []).length === 0">
                     Check Settings to add Columns to Container
@@ -29,19 +28,22 @@
 
         </div>
 
-        <div *ngIf="actualControl">
 
-            <div fxLayout="row">
-                <div fxFlex
-                     *ngFor="let item of (data.controlContainers || [])">
-                    <mat-card class="mat-card-app-container-box">
-                        <app-container-box [actualControl]="actualControl"
-                                           [data]="item"></app-container-box>
-                    </mat-card>
-                </div>
-            </div>
-
-        </div>
 
     </div>
+</div>
+
+<div class="form-generator-control-content"
+     *ngIf="actualControl">
+
+    <div fxLayout="row">
+        <div fxFlex
+             *ngFor="let item of (data.controlContainers || [])">
+            <mat-card class="mat-card-app-container-box">
+                <app-container-box [actualControl]="actualControl"
+                                   [data]="item"></app-container-box>
+            </mat-card>
+        </div>
+    </div>
+
 </div>

@@ -1,0 +1,18 @@
+<div>
+    <button mat-button
+            (click)="onCancelUpdatingOrder()">Cancel</button>
+    <button mat-button
+            (click)="onDoneUpdatingOrder()">Save</button>
+</div>
+
+<div cdkDropList
+     class="control-order-list"
+     (cdkDropListDropped)="drop($event)">
+    <div class="control-order-box"
+         *ngFor="let item of controlList"
+         cdkDrag>
+        <div class="control-order-custom-placeholder"
+             *cdkDragPlaceholder></div>
+        {{item.controlType}} - {{item.controlName}}
+    </div>
+</div>

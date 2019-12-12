@@ -5,13 +5,14 @@ import { MatDialog } from '@angular/material/dialog';
 import { DialogModel, DialogMessageComponent } from '../shared/dialog-confirmation/dialog-message.component';
 import { PopUpAddControlComponent } from './pop-up-add-control/pop-up-add-control.component';
 import { Injectable } from '@angular/core';
+import { ControlOrderingComponent } from './control-ordering/control-ordering.component';
 
 @Injectable({
     providedIn: 'root'
 })
 export class FormService {
     private availableControls: FormControlWidget[] = [];
-    private controlList: FormControlModel[] = [];
+    public controlList: FormControlModel[] = [];
 
     constructor(public dialog: MatDialog) {
         this.availableControls.push(this.convertToFormControlWidget(FormControlStatic.CheckBox));
@@ -29,9 +30,6 @@ export class FormService {
         return this.availableControls.slice();
     }
 
-    public get getControlList(): FormControlModel[] {
-        return this.controlList;
-    }
 
     public makeid(length: number): string {
         let result = '';

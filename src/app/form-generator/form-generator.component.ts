@@ -13,6 +13,8 @@ import { DialogModel, DialogMessageComponent } from '../shared/dialog-confirmati
 })
 export class FormGeneratorComponent implements OnInit {
 
+  enableReorderControl: boolean = false;
+  temporaryControlForOrdering: FormControlModel[];
   controls: any = {
     textbox: AvailableFormControlModel,
     checkbox: AvailableFormControlModel,
@@ -37,6 +39,20 @@ export class FormGeneratorComponent implements OnInit {
     control: FormControlModel
   }): void {
     this.formService.deleteControl(data.control, data.controlList);
+  }
+
+  reorderControls() {
+    this.temporaryControlForOrdering = this.formService.controlList.slice();
+    this.enableReorderControl = true;
+  }
+
+  onDoneUpdatingOrder(data: {
+    update: boolean, controlList: FormControlModel[]
+  }) {
+    if (data.update) {
+      this.formService.controlList = data.controlList;
+    }
+    this.enableReorderControl = false;
   }
 
 }

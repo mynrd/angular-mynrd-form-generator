@@ -24,6 +24,7 @@ import { TextContainerConfigComponent } from './form-generator/controls/text-con
 import { ControlContainerComponent } from './form-generator/controls/control-container/control-container.component';
 import { ControlContainerConfigComponent } from './form-generator/controls/control-container/control-container-config.component';
 import { ContainerBoxComponent } from './form-generator/controls/control-container/container-box/container-box.component';
+import { ControlOrderingComponent } from './form-generator/control-ordering/control-ordering.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { ContainerBoxComponent } from './form-generator/controls/control-contain
     DialogMessageComponent,
     TextContainerComponent,
     ControlContainerComponent,
-    ContainerBoxComponent
+    ContainerBoxComponent,
+    ControlOrderingComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +64,8 @@ import { ContainerBoxComponent } from './form-generator/controls/control-contain
     CheckBoxConfigComponent,
     DropDownListConfigComponent,
     TextContainerConfigComponent,
-    ControlContainerConfigComponent
+    ControlContainerConfigComponent,
+    ControlOrderingComponent
   ],
   providers: [FormService],
   bootstrap: [AppComponent]

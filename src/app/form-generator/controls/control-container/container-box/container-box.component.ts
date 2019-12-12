@@ -14,6 +14,8 @@ import { PopUpAddControlComponent } from 'src/app/form-generator/pop-up-add-cont
 export class ContainerBoxComponent {
   @Input() data: ConfigControlContainer;
   @Input() actualControl: boolean;
+  enableReorderControl: boolean = false;
+  temporaryControlForOrdering: FormControlModel[];
 
   controls: any = {
     textbox: AvailableFormControlModel,
@@ -28,10 +30,6 @@ export class ContainerBoxComponent {
     this.controls = this.formService.getStaticControls();
   }
 
-  onReOrder(): void {
-    console.log("onReOrder");
-  }
-
   onAddControlItem(): void {
     this.formService.addControl(this.data.controlList);
   }
@@ -41,6 +39,20 @@ export class ContainerBoxComponent {
     control: FormControlModel
   }): void {
     this.formService.deleteControl(data.control, data.controlList);
+  }
+
+  reorderControls() {
+    this.temporaryControlForOrdering = this.data.controlList.slice();
+    this.enableReorderControl = true;
+  }
+
+  onDoneUpdatingOrder(data: {
+    update: boolean, controlList: FormControlModel[]
+  }) {
+    if (data.update) {
+      this.data.controlList = data.controlList;
+    }
+    this.enableReorderControl = false;
   }
 
 }

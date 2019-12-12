@@ -1,21 +1,16 @@
-import { ThrowStmt } from '@angular/compiler';
-
 export class FormControlModel {
 
     public configTextBox: ConfigTextBox;
     public configDropDownList: ConfigDropDownList;
     public configTextContainer: ConfigTextContainer;
     public controlContainers: ConfigControlContainer[];
+    public configRadioButton: ConfigRadioButton;
 
     public controlDescription: string;
 
     constructor(public controlType: string,
         public controlName: string,
         public label: string) {
-        // this.configTextBox = new ConfigTextBox();
-        // this.configDropDownList = new ConfigDropDownList();
-        // this.configTextContainer = new ConfigTextContainer();
-        // this.controlContainers = [];
     }
 }
 
@@ -45,7 +40,6 @@ export class ConfigControlContainer {
     }
 }
 
-
 export class ConfigDropDownList {
     public dataSource: ValueText[] = []
     public useApi: boolean = false;
@@ -56,6 +50,15 @@ export class ConfigDropDownList {
     constructor() {
         this.required = false;
         this.useApiUrl = false;
+    }
+}
+
+export class ConfigRadioButton {
+    public buttons: ValueText[] = [];
+    public displayType: string = "";
+    public description: string = "";
+    public required?: boolean;
+    constructor() {
     }
 }
 

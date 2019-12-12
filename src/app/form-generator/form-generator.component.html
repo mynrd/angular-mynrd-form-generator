@@ -38,27 +38,11 @@
                                           [controlList]="temporaryControlForOrdering"></app-control-ordering>
                     <div *ngIf="!enableReorderControl">
                         <div *ngFor="let item of formService.controlList">
-                            <app-text-box *ngIf="item.controlType === controls.textbox.name"
-                                          [controlList]="formService.controlList"
-                                          (deleteControl)="onDeleteControl($event)"
-                                          [data]="item"></app-text-box>
-                            <app-check-box *ngIf="item.controlType === controls.checkbox.name"
-                                           [controlList]="formService.controlList"
-                                           (deleteControl)="onDeleteControl($event)"
-                                           [data]="item"></app-check-box>
-                            <app-drop-down-list *ngIf="item.controlType === controls.dropdownlist.name"
-                                                [controlList]="formService.controlList"
-                                                (deleteControl)="onDeleteControl($event)"
-                                                [data]="item"></app-drop-down-list>
-                            <app-text-container *ngIf="item.controlType === controls.textContainer.name"
-                                                [controlList]="formService.controlList"
-                                                (deleteControl)="onDeleteControl($event)"
-                                                [data]="item"></app-text-container>
-                            <app-control-container *ngIf="item.controlType === controls.controlContainer.name"
-                                                   [controlList]="formService.controlList"
-                                                   (deleteControl)="onDeleteControl($event)"
-                                                   (addControlItem)="onAddControlItem($event)"
-                                                   [data]="item"></app-control-container>
+                            <app-control-list [item]="item"
+                                              [controlList]="formService.controlList"
+                                              (deleteControl)="onDeleteControl($event)"
+                                              (addControlItem)="onAddControlItem($event)"></app-control-list>
+
                         </div>
                     </div>
                 </div>
@@ -72,21 +56,9 @@
                         <hr>
                         <mat-card>
                             <div *ngFor="let item of formService.controlList">
-                                <app-text-box *ngIf="item.controlType === controls.textbox.name"
-                                              [actualControl]="true"
-                                              [data]="item"></app-text-box>
-                                <app-check-box *ngIf="item.controlType === controls.checkbox.name"
-                                               [actualControl]="true"
-                                               [data]="item"></app-check-box>
-                                <app-drop-down-list *ngIf="item.controlType === controls.dropdownlist.name"
-                                                    [actualControl]="true"
-                                                    [data]="item"></app-drop-down-list>
-                                <app-text-container *ngIf="item.controlType === controls.textContainer.name"
-                                                    [actualControl]="true"
-                                                    [data]="item"></app-text-container>
-                                <app-control-container *ngIf="item.controlType === controls.controlContainer.name"
-                                                       [actualControl]="true"
-                                                       [data]="item"></app-control-container>
+                                <app-control-list [item]="item"
+                                                  [actualControl]="true">
+                                </app-control-list>
                             </div>
                         </mat-card>
                     </mat-card>

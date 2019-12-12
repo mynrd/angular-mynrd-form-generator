@@ -19,6 +19,7 @@ export class FormService {
         this.availableControls.push(this.convertToFormControlWidget(FormControlStatic.TextBox));
         this.availableControls.push(this.convertToFormControlWidget(FormControlStatic.DropDownList));
         this.availableControls.push(this.convertToFormControlWidget(FormControlStatic.TextContainer));
+        this.availableControls.push(this.convertToFormControlWidget(FormControlStatic.RadioButton));
         this.availableControls.push(this.convertToFormControlWidget(FormControlStatic.ControlContainer));
     }
 
@@ -91,6 +92,20 @@ export class FormService {
                 data.controlContainers = [];
                 data.controlContainers.push(container);
                 break;
+            case FormControlStatic.RadioButton.name:
+                data.controlDescription = FormControlStatic.RadioButton.description;
+
+                data.configRadioButton = {
+                    buttons: [
+                        new ValueText({ value: "1", text: "One" }),
+                        new ValueText({ value: "2", text: "Two" }),
+                    ],
+                    required: false,
+                    displayType: "standard",
+                    description: "",
+                };
+
+                break;
             case FormControlStatic.DropDownList.name:
                 data.controlDescription = FormControlStatic.DropDownList.description;
                 data.configDropDownList = {
@@ -124,6 +139,7 @@ export class FormService {
             dropdownlist: FormControlStatic.DropDownList,
             textContainer: FormControlStatic.TextContainer,
             controlContainer: FormControlStatic.ControlContainer,
+            radioButton: FormControlStatic.RadioButton,
         };
     }
 }

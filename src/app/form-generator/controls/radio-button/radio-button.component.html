@@ -1,0 +1,38 @@
+<div class="form-generator-control"
+     *ngIf="!actualControl">
+    <div [ngClass]="{'control-box': !actualControl}">
+        <div class="form-generator-control-content">
+            <div *ngIf="data.configRadioButton.displayType === 'standard'">
+                <label id="example-radio-group-label">{{data.label}}</label>
+                <mat-radio-group class="radio-group">
+                    <mat-radio-button class="radio-button"
+                                      *ngFor="let button of data.configRadioButton.buttons"
+                                      [value]="button.value">
+                        {{button.text}}
+                    </mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </div>
+
+        <app-control-action-button *ngIf="!actualControl"
+                                   [data]="data"
+                                   (deleteControl)="onDeleteControl($event)"
+                                   (openSettings)="openSettings()"></app-control-action-button>
+    </div>
+
+</div>
+
+<div class="form-generator-control-content"
+     *ngIf="actualControl">
+    <div *ngIf="data.configRadioButton.displayType === 'standard'">
+        <label id="example-radio-group-label">{{data.label}}</label>
+        <mat-radio-group class="radio-group">
+            <mat-radio-button class="radio-button"
+                              *ngFor="let button of data.configRadioButton.buttons"
+                              [value]="button.value">
+                {{button.text}}
+            </mat-radio-button>
+        </mat-radio-group>
+    </div>
+
+</div>

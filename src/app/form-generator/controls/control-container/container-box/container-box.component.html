@@ -37,34 +37,10 @@
     <div *ngIf="!enableReorderControl && data.wrappedWith === 'div'">
         <div class="control-list"
              *ngFor="let item of (data.controlList || [])">
-
-            <!-- <app-text-box *ngIf="item.controlType === controls.textbox.name"
-                          [controlList]="data.controlList"
-                          (deleteControl)="onDeleteControl($event)"
-                          [data]="item"></app-text-box>
-            <app-check-box *ngIf="item.controlType === controls.checkbox.name"
-                           [controlList]="data.controlList"
-                           (deleteControl)="onDeleteControl($event)"
-                           [data]="item"></app-check-box>
-            <app-drop-down-list *ngIf="item.controlType === controls.dropdownlist.name"
-                                [controlList]="data.controlList"
-                                (deleteControl)="onDeleteControl($event)"
-                                [data]="item"></app-drop-down-list>
-            <app-text-container *ngIf="item.controlType === controls.textContainer.name"
-                                [controlList]="data.controlList"
-                                (deleteControl)="onDeleteControl($event)"
-                                [data]="item"></app-text-container>
-            <app-control-container *ngIf="item.controlType === controls.controlContainer.name"
-                                   [controlList]="data.controlList"
-                                   (deleteControl)="onDeleteControl($event)"
-                                   (addControlItem)="onAddControlItem($event)"
-                                   [data]="item"></app-control-container> -->
-
-
-            <app-container-box-control [item]="item"
-                                       [controlList]="data.controlList"
-                                       (deleteControl)="onDeleteControl($event)"
-                                       (addControlItem)="onAddControlItem($event)"></app-container-box-control>
+            <app-control-list [item]="item"
+                              [controlList]="data.controlList"
+                              (deleteControl)="onDeleteControl($event)"
+                              (addControlItem)="onAddControlItem($event)"></app-control-list>
 
         </div>
     </div>
@@ -83,33 +59,10 @@
 
         <div class="control-list"
              *ngFor="let item of (data.controlList || [])">
-
-            <!-- <app-text-box *ngIf="item.controlType === controls.textbox.name"
-                          [controlList]="data.controlList"
-                          (deleteControl)="onDeleteControl($event)"
-                          [data]="item"></app-text-box>
-            <app-check-box *ngIf="item.controlType === controls.checkbox.name"
-                           [controlList]="data.controlList"
-                           (deleteControl)="onDeleteControl($event)"
-                           [data]="item"></app-check-box>
-            <app-drop-down-list *ngIf="item.controlType === controls.dropdownlist.name"
-                                [controlList]="data.controlList"
-                                (deleteControl)="onDeleteControl($event)"
-                                [data]="item"></app-drop-down-list>
-            <app-text-container *ngIf="item.controlType === controls.textContainer.name"
-                                [controlList]="data.controlList"
-                                (deleteControl)="onDeleteControl($event)"
-                                [data]="item"></app-text-container>
-            <app-control-container *ngIf="item.controlType === controls.controlContainer.name"
-                                   [controlList]="data.controlList"
-                                   (deleteControl)="onDeleteControl($event)"
-                                   (addControlItem)="onAddControlItem($event)"
-                                   [data]="item"></app-control-container> -->
-
-            <app-container-box-control [item]="item"
-                                       [controlList]="data.controlList"
-                                       (deleteControl)="onDeleteControl($event)"
-                                       (addControlItem)="onAddControlItem($event)"></app-container-box-control>
+            <app-control-list [item]="item"
+                              [controlList]="data.controlList"
+                              (deleteControl)="onDeleteControl($event)"
+                              (addControlItem)="onAddControlItem($event)"></app-control-list>
 
         </div>
     </mat-expansion-panel>
@@ -117,22 +70,8 @@
 
 <div *ngIf="actualControl && data.wrappedWith === 'div'">
     <div *ngFor="let item of (data.controlList || [])">
-        <app-container-box-control [item]="item"></app-container-box-control>
-        <!-- <app-text-box *ngIf="item.controlType === controls.textbox.name"
-                      [actualControl]="true"
-                      [data]="item"></app-text-box>
-        <app-check-box *ngIf="item.controlType === controls.checkbox.name"
-                       [actualControl]="true"
-                       [data]="item"></app-check-box>
-        <app-drop-down-list *ngIf="item.controlType === controls.dropdownlist.name"
-                            [actualControl]="true"
-                            [data]="item"></app-drop-down-list>
-        <app-text-container *ngIf="item.controlType === controls.textContainer.name"
-                            [actualControl]="true"
-                            [data]="item"></app-text-container>
-        <app-control-container *ngIf="item.controlType === controls.controlContainer.name"
-                               [actualControl]="true"
-                               [data]="item"></app-control-container> -->
+        <app-control-list [item]="item"
+                          [actualControl]="true"></app-control-list>
     </div>
 
 </div>
@@ -149,22 +88,8 @@
     </mat-expansion-panel-header>
 
     <div *ngFor="let item of (data.controlList || [])">
-        <app-container-box-control [item]="item"
-                                   [actualControl]="true"></app-container-box-control>
-        <!-- <app-text-box *ngIf="item.controlType === controls.textbox.name"
-                      [actualControl]="true"
-                      [data]="item"></app-text-box>
-        <app-check-box *ngIf="item.controlType === controls.checkbox.name"
-                       [actualControl]="true"
-                       [data]="item"></app-check-box>
-        <app-drop-down-list *ngIf="item.controlType === controls.dropdownlist.name"
-                            [actualControl]="true"
-                            [data]="item"></app-drop-down-list>
-        <app-text-container *ngIf="item.controlType === controls.textContainer.name"
-                            [actualControl]="true"
-                            [data]="item"></app-text-container>
-        <app-control-container *ngIf="item.controlType === controls.controlContainer.name"
-                               [actualControl]="true"
-                               [data]="item"></app-control-container> -->
+        <app-control-list [item]="item"
+                          [actualControl]="true"></app-control-list>
+
     </div>
 </mat-expansion-panel>

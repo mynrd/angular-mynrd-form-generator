@@ -4,6 +4,10 @@ export class FormControlStatic {
         return new AvailableFormControlModel("checkbox", "Check box");
     }
 
+    static get RadioButton(): AvailableFormControlModel {
+        return new AvailableFormControlModel("radiobutton", "Radio Button");
+    }
+
     static get TextBox(): AvailableFormControlModel {
         return new AvailableFormControlModel("textbox", "Text Box");
     }

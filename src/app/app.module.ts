@@ -23,10 +23,13 @@ import { TextContainerComponent } from './form-generator/controls/text-container
 import { TextContainerConfigComponent } from './form-generator/controls/text-container/text-container-config.component';
 import { ControlContainerComponent } from './form-generator/controls/control-container/control-container.component';
 import { ControlContainerConfigComponent } from './form-generator/controls/control-container/control-container-config.component';
-import { ContainerBoxComponent, ContainerBoxControlComponent } from './form-generator/controls/control-container/container-box/container-box.component';
+import { ContainerBoxComponent } from './form-generator/controls/control-container/container-box/container-box.component';
 import { ControlOrderingComponent } from './form-generator/control-ordering/control-ordering.component';
 import { PanelContainerComponent } from './form-generator/controls/panel-container/panel-container.component';
 import { ContainerBoxConfigComponent } from './form-generator/controls/control-container/container-box/container-box-config.component';
+import { RadioButtonComponent } from './form-generator/controls/radio-button/radio-button.component';
+import { RadioButtonConfigComponent } from './form-generator/controls/radio-button/radio-button-config.component';
+import { ControlListComponent } from './form-generator/controls/control-list.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +55,9 @@ import { ContainerBoxConfigComponent } from './form-generator/controls/control-c
     ContainerBoxComponent,
     ControlOrderingComponent,
     PanelContainerComponent,
-    ContainerBoxControlComponent
+    ControlListComponent,
+    RadioButtonComponent,
+    RadioButtonConfigComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +76,8 @@ import { ContainerBoxConfigComponent } from './form-generator/controls/control-c
     TextContainerConfigComponent,
     ControlContainerConfigComponent,
     ControlOrderingComponent,
-    ContainerBoxConfigComponent
+    ContainerBoxConfigComponent,
+    RadioButtonConfigComponent
   ],
   providers: [FormService],
   bootstrap: [AppComponent]

@@ -5,6 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Observable, of, Subscription, BehaviorSubject } from 'rxjs';
 
 const CONTAINER_TYPE: ValueText[] = [
+    new ValueText({ value: "html", text: "Html" }),
     new ValueText({ value: "mat-label", text: "Label" }),
     new ValueText({ value: "h1", text: "Header 1" }),
     new ValueText({ value: "h2", text: "Header 2" }),

@@ -8,13 +8,22 @@
                             [value]="item.value">{{item.text}}</mat-option>
             </mat-select>
         </mat-form-field>
+
+
     </p>
 
     <p>
-        <mat-form-field appearance="legacy">
+        <mat-form-field appearance="legacy"
+                        *ngIf="tempItem.containerType !== 'html'">
             <mat-label>Content</mat-label>
             <input matInput
                    [(ngModel)]="tempItem.content">
+        </mat-form-field>
+
+        <mat-form-field *ngIf="tempItem.containerType === 'html'">
+            <textarea matInput
+                      [(ngModel)]="tempItem.content"
+                      placeholder="Place Html Content"></textarea>
         </mat-form-field>
     </p>
 </div>

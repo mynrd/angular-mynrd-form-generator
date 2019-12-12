@@ -4,12 +4,14 @@
 
             <button class="add-btn"
                     color="primary"
+                    [disabled]="enableReorderControl"
                     (click)="onAddControlItem()">
                 <mat-icon>note_add</mat-icon>
             </button>
 
             <button class="reorder-btn"
                     color="warn"
+                    [disabled]="enableReorderControl"
                     (click)="reorderControls()">
                 <mat-icon>reorder</mat-icon>
             </button>

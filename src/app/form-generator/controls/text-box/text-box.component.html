@@ -3,7 +3,14 @@
     <div class="form-generator-control-content">
         <div class="control-box"
              *ngIf="!actualControl">
-            {{data.controlDescription}} - {{data.controlName}} - {{data.label}}
+            <!-- {{data.controlDescription}} - {{data.controlName}} - {{data.label}} -->
+
+            <mat-form-field class="full-width">
+                <mat-label *ngIf="(data.label || '') !== ''">{{data.label}}</mat-label>
+                <input matInput
+                       [placeholder]="data.configTextBox?.placeholder"
+                       [id]="data.controlId">
+            </mat-form-field>
 
             <app-control-action-button *ngIf="!actualControl"
                                        [data]="data"

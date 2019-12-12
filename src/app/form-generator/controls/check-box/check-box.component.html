@@ -1,7 +1,10 @@
 <div class="form-generator-control">
     <div class="control-box"
          *ngIf="!actualControl">
-        {{data.controlDescription}} - {{data.controlName}} - {{data.label}}
+        <!-- {{data.controlDescription}} - {{data.controlName}} - {{data.label}} -->
+        <div class="form-generator-control-content">
+            <mat-checkbox [id]="data.controlName">{{data.label}}</mat-checkbox>
+        </div>
 
         <app-control-action-button *ngIf="!actualControl"
                                    [data]="data"

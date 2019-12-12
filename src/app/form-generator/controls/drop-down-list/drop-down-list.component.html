@@ -1,16 +1,16 @@
-<!-- <div fxLayout="row"
-     fxLayoutAlign="center">
-    <div fxFlex>
-     
-    </div>
-    <div fxFlex="80px">
-      
-    </div>
-</div> -->
 <div class="form-generator-control">
     <div class="control-box"
          *ngIf="!actualControl">
-        {{data.controlDescription}} - {{data.controlName}} - {{data.label}}
+        <div class="form-generator-control-content">
+            <mat-form-field [id]="data.controlId">
+                <mat-label *ngIf="data.label !== ''">{{data.label}}</mat-label>
+
+                <mat-select [required]="data.configDropDownList.required">
+                    <mat-option *ngFor="let item of data.configDropDownList.dataSource"
+                                [value]="item.value">{{item.text}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
 
         <app-control-action-button *ngIf="!actualControl"
                                    [data]="data"
@@ -28,5 +28,4 @@
             </mat-select>
         </mat-form-field>
     </div>
-
 </div>

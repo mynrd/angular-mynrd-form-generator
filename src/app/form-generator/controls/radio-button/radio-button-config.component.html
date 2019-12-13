@@ -1,0 +1,120 @@
+<h1 mat-dialog-title>Radio Button Configuration</h1>
+<div mat-dialog-content>
+    <mat-tab-group>
+        <mat-tab label="General">
+            <p>
+                <mat-form-field>
+                    <mat-label>Display Type</mat-label>
+                    <mat-select [(ngModel)]="tempItem.displayType">
+                        <mat-option value='standard'>Standard</mat-option>
+                        <mat-option value='inline'>In line</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </p>
+            
+            <p>
+                <mat-checkbox [(ngModel)]="tempItem.buttonsInline">Buttons Inline?</mat-checkbox>
+            </p>
+            <p>
+                <mat-form-field>
+                    <mat-label>Label Type</mat-label>
+                    <mat-select [(ngModel)]="tempItem.labelType">
+                        <mat-option value='label'>Standard Label</mat-option>
+                        <mat-option value='h1'>Header 1</mat-option>
+                        <mat-option value='h2'>Header 2</mat-option>
+                        <mat-option value='h3'>Header 3</mat-option>
+                        <mat-option value='h4'>Header 4</mat-option>
+                        <mat-option value='h5'>Header 5</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field appearance="legacy">
+                    <mat-label>Label</mat-label>
+                    <input matInput
+                           [(ngModel)]="tempItem.label">
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-form-field appearance="legacy">
+                    <mat-label>Description</mat-label>
+                    <input matInput
+                           [(ngModel)]="tempItem.description">
+                </mat-form-field>
+            </p>
+
+            <p>
+                <mat-checkbox [(ngModel)]="tempItem.required">Required?</mat-checkbox>
+            </p>
+        </mat-tab>
+
+        <mat-tab label="Button List">
+            <p>Update Buttons</p>
+
+            <button mat-raised-button
+                    (click)="addNewRow()"> Insert Row </button>
+            <br />
+            <br />
+            <table mat-table
+                   [dataSource]="dataSource"
+                   class="mat-elevation-z8"
+                   style="width:100%">
+                <ng-container matColumnDef="value">
+                    <th mat-header-cell
+                        *matHeaderCellDef>Value</th>
+                    <td mat-cell
+                        *matCellDef="let element">
+                        <mat-form-field>
+                            <input matInput
+                                   [(ngModel)]="element.value">
+                        </mat-form-field>
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="text">
+                    <th mat-header-cell
+                        *matHeaderCellDef>Text</th>
+                    <td mat-cell
+                        *matCellDef="let element">
+                        <mat-form-field>
+                            <input matInput
+                                   [(ngModel)]="element.text">
+                        </mat-form-field>
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="action">
+                    <th mat-header-cell
+                        *matHeaderCellDef></th>
+                    <td mat-cell
+                        *matCellDef="let element"
+                        style="padding-right: 0;">
+                        <button mat-icon-button>
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row
+                    *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row
+                    *matRowDef="let row; columns: displayedColumns;"></tr>
+
+            </table>
+
+        </mat-tab>
+    </mat-tab-group>
+</div>
+<div mat-dialog-actions>
+    <button mat-button
+            (click)="saveConfig()"
+            cdkFocusInitial>Save Configuration</button>
+    <p *ngIf="messageInfo!== ''"
+       style="color: red;">
+        {{messageInfo}}
+    </p>
+</div>
+
+

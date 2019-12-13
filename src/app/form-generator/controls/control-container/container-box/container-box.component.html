@@ -5,6 +5,7 @@
             <button mat-icon-button
                     class="add-btn"
                     color="primary"
+                    matTooltip="Add Control"
                     [disabled]="enableReorderControl"
                     (click)="onAddControlItem()">
                 <mat-icon>note_add</mat-icon>
@@ -13,6 +14,7 @@
             <button mat-icon-button
                     class="reorder-btn"
                     color="warn"
+                    matTooltip="Rearrange Controls"
                     [disabled]="enableReorderControl"
                     (click)="reorderControls()">
                 <mat-icon>reorder</mat-icon>
@@ -20,6 +22,7 @@
             <button mat-icon-button
                     class="reorder-btn"
                     color="warn"
+                    matTooltip="Container Settings"
                     [disabled]="enableReorderControl"
                     (click)="openSetting()">
                 <mat-icon>settings_applications</mat-icon>

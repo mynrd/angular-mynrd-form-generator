@@ -1,0 +1,31 @@
+<app-text-box *ngIf="item.controlType === controls.textbox.name"
+              [controlList]="controlList"
+              [actualControl]="actualControl"
+              (deleteControl)="onDeleteControl($event)"
+              [data]="item"></app-text-box>
+<app-check-box *ngIf="item.controlType === controls.checkbox.name"
+               [controlList]="controlList"
+               [actualControl]="actualControl"
+               (deleteControl)="onDeleteControl($event)"
+               [data]="item"></app-check-box>
+<app-drop-down-list *ngIf="item.controlType === controls.dropdownlist.name"
+                    [controlList]="controlList"
+                    [actualControl]="actualControl"
+                    (deleteControl)="onDeleteControl($event)"
+                    [data]="item"></app-drop-down-list>
+<app-text-container *ngIf="item.controlType === controls.textContainer.name"
+                    [controlList]="controlList"
+                    [actualControl]="actualControl"
+                    (deleteControl)="onDeleteControl($event)"
+                    [data]="item"></app-text-container>
+<app-control-container *ngIf="item.controlType === controls.controlContainer.name"
+                       [controlList]="controlList"
+                       [actualControl]="actualControl"
+                       (deleteControl)="onDeleteControl($event)"
+                       (addControlItem)="onAddControlItem($event)"
+                       [data]="item"></app-control-container>
+<app-radio-button *ngIf="item.controlType === controls.radioButton.name"
+                  [controlList]="controlList"
+                  [actualControl]="actualControl"
+                  (deleteControl)="onDeleteControl($event)"
+                  [data]="item"></app-radio-button>

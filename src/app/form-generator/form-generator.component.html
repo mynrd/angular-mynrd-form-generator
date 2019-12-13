@@ -17,6 +17,7 @@
                             <button mat-icon-button
                                     class="add-btn"
                                     color="primary"
+                                    matTooltip="Add Control"
                                     [disabled]="enableReorderControl"
                                     (click)="onAddControlItem(formService.controlList)">
                                 <mat-icon>note_add</mat-icon>
@@ -25,6 +26,7 @@
                             <button mat-icon-button
                                     class="reorder-btn"
                                     color="warn"
+                                    matTooltip="Rearrange Controls"
                                     [disabled]="enableReorderControl"
                                     (click)="reorderControls()">
                                 <mat-icon>reorder</mat-icon>

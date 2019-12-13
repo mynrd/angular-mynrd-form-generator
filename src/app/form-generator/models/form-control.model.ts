@@ -58,6 +58,9 @@ export class ConfigRadioButton {
     public displayType: string = "";
     public description: string = "";
     public required?: boolean;
+    public labelType: string;
+    public buttonsInline: boolean;
+
     constructor() {
     }
 }

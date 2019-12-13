@@ -103,6 +103,8 @@ export class FormService {
                     required: false,
                     displayType: "standard",
                     description: "",
+                    labelType: "label",
+                    buttonsInline: false,
                 };
 
                 break;

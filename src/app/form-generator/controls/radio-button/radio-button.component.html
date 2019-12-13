@@ -2,9 +2,15 @@
      *ngIf="!actualControl">
     <div [ngClass]="{'control-box': !actualControl}">
         <div class="form-generator-control-content">
-            <div *ngIf="data.configRadioButton.displayType === 'standard'">
-                <label id="example-radio-group-label">{{data.label}}</label>
-                <mat-radio-group class="radio-group">
+            <div [ngClass]="{'inline-display': data.configRadioButton.displayType === 'inline'}">
+                <label *ngIf="data.configRadioButton.labelType === 'label'">{{data.label}}</label>
+                <h1 *ngIf="data.configRadioButton.labelType === 'h1'">{{data.label}}</h1>
+                <h2 *ngIf="data.configRadioButton.labelType === 'h2'">{{data.label}}</h2>
+                <h3 *ngIf="data.configRadioButton.labelType === 'h3'">{{data.label}}</h3>
+                <h4 *ngIf="data.configRadioButton.labelType === 'h4'">{{data.label}}</h4>
+                <h5 *ngIf="data.configRadioButton.labelType === 'h5'">{{data.label}}</h5>
+                <mat-radio-group class="radio-group"
+                                 [ngClass]="{'horizontal-buttons': data.configRadioButton.buttonsInline}">
                     <mat-radio-button class="radio-button"
                                       *ngFor="let button of data.configRadioButton.buttons"
                                       [value]="button.value">
@@ -24,9 +30,15 @@
 
 <div class="form-generator-control-content"
      *ngIf="actualControl">
-    <div *ngIf="data.configRadioButton.displayType === 'standard'">
-        <label id="example-radio-group-label">{{data.label}}</label>
-        <mat-radio-group class="radio-group">
+    <div [ngClass]="{'inline-display': data.configRadioButton.displayType === 'inline'}">
+        <label *ngIf="data.configRadioButton.labelType === 'label'">{{data.label}}</label>
+        <h1 *ngIf="data.configRadioButton.labelType === 'h1'">{{data.label}}</h1>
+        <h2 *ngIf="data.configRadioButton.labelType === 'h2'">{{data.label}}</h2>
+        <h3 *ngIf="data.configRadioButton.labelType === 'h3'">{{data.label}}</h3>
+        <h4 *ngIf="data.configRadioButton.labelType === 'h4'">{{data.label}}</h4>
+        <h5 *ngIf="data.configRadioButton.labelType === 'h5'">{{data.label}}</h5>
+        <mat-radio-group class="radio-group"
+                         [ngClass]="{'horizontal-buttons': data.configRadioButton.buttonsInline}">
             <mat-radio-button class="radio-button"
                               *ngFor="let button of data.configRadioButton.buttons"
                               [value]="button.value">
@@ -34,5 +46,4 @@
             </mat-radio-button>
         </mat-radio-group>
     </div>
-
 </div>

@@ -2,8 +2,17 @@
   display: flex;
   flex-direction: column;
   margin: 15px 0;
+  width: 100%;
+}
+
+div.inline-display {
+  display: flex;
 }
 
 .radio-button {
   margin: 5px;
+}
+
+.horizontal-buttons {
+  flex-direction: unset !important;
 }

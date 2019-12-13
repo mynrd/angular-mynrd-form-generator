@@ -40,5 +40,4 @@ export class RadioButtonComponent implements OnInit {
     this.deleteControl.emit(data);
   }
 
-
 }

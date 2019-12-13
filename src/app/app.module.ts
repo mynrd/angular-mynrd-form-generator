@@ -29,7 +29,7 @@ import { PanelContainerComponent } from './form-generator/controls/panel-contain
 import { ContainerBoxConfigComponent } from './form-generator/controls/control-container/container-box/container-box-config.component';
 import { RadioButtonComponent } from './form-generator/controls/radio-button/radio-button.component';
 import { RadioButtonConfigComponent } from './form-generator/controls/radio-button/radio-button-config.component';
-import { ControlListComponent } from './form-generator/controls/control-list.component';
+import { ControlListComponent } from './form-generator/controls/control-list/control-list.component';
 
 @NgModule({
   declarations: [

@@ -5,6 +5,7 @@ export class FormControlModel {
     public configTextContainer: ConfigTextContainer;
     public controlContainers: ConfigControlContainer[];
     public configRadioButton: ConfigRadioButton;
+    public value: any;
 
     public controlDescription: string;
 

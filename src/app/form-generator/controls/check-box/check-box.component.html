@@ -14,5 +14,5 @@
 
 <div class="form-generator-control-content"
      *ngIf="actualControl">
-    <mat-checkbox [id]="data.controlName">{{data.label}}</mat-checkbox>
+    <mat-checkbox [(ngModel)]="data.value">{{data.label}}</mat-checkbox>
 </div>

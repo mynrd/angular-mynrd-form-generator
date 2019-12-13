@@ -5,7 +5,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { DialogModel, DialogMessageComponent } from '../shared/dialog-confirmation/dialog-message.component';
 import { PopUpAddControlComponent } from './pop-up-add-control/pop-up-add-control.component';
 import { Injectable } from '@angular/core';
-import { ControlOrderingComponent } from './control-ordering/control-ordering.component';
 
 @Injectable({
     providedIn: 'root'
@@ -31,6 +30,46 @@ export class FormService {
         return this.availableControls.slice();
     }
 
+    public get dataResult(): any {
+
+        let data: any = new Object();
+
+        this.controlList.forEach(ctrl => {
+
+            switch (ctrl.controlType) {
+                case FormControlStatic.DropDownList.name:
+                case FormControlStatic.CheckBox.name:
+                case FormControlStatic.TextBox.name:
+                    if (ctrl.controlName.indexOf(".") > 0) {
+                        let fields = ctrl.controlName.split(".");
+                        let lastField = new Object();
+                        let temp = new Object();
+
+                        for (let index = 0; index < fields.length; index++) {
+                            if (index === 0) continue;
+                            if (fields[fields.length - 1] == fields[index]) {
+                                lastField[fields[index]] = ctrl.value;
+                            }
+                            else {
+                                lastField[fields[index]] = new Object();
+                                lastField = lastField[fields[index]];
+                            }
+                        }
+                        data[fields[0]] = lastField;
+                    }
+                    else {
+                        data[ctrl.controlName] = ctrl.value;
+                    }
+                    break;
+            }
+
+            if (ctrl.controlType === FormControlStatic.TextBox.name) {
+
+            }
+        });
+
+        return data;
+    }
 
     public makeid(length: number): string {
         let result = '';

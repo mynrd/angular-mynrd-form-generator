@@ -25,7 +25,8 @@
     <mat-form-field [id]="data.controlId">
         <mat-label *ngIf="data.label !== ''">{{data.label}}</mat-label>
 
-        <mat-select [required]="data.configDropDownList.required">
+        <mat-select [required]="data.configDropDownList.required"
+                    [(ngModel)]="data.value">
             <mat-option *ngFor="let item of data.configDropDownList.dataSource"
                         [value]="item.value">{{item.text}}</mat-option>
         </mat-select>

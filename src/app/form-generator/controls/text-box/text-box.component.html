@@ -28,6 +28,7 @@
         <mat-label *ngIf="(data.label || '') !== ''">{{data.label}}</mat-label>
         <input matInput
                [placeholder]="data.configTextBox?.placeholder"
+               [(ngModel)]="data.value"
                [id]="data.controlId">
     </mat-form-field>
 </div>

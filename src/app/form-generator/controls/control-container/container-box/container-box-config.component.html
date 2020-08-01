@@ -1,6 +1,13 @@
 <h1 mat-dialog-title>Container Settings</h1>
 <div mat-dialog-content>
     <p>
+        <mat-form-field appearance="legacy">
+            <mat-label>Control Name</mat-label>
+            <input matInput
+                   [(ngModel)]="tempItem.controlName">
+        </mat-form-field>
+    </p>
+    <p>
         <mat-form-field>
             <mat-label>Wrapped With</mat-label>
             <mat-select [(ngModel)]="tempItem.wrappedWith">

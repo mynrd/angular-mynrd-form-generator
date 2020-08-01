@@ -31,11 +31,13 @@ export class FormService {
     }
 
     public get dataResult(): any {
+        return this.getDataResult(this.controlList);
+    }
 
+
+    getDataResult(list: FormControlModel[]): void {
         let data: any = new Object();
-
-        this.controlList.forEach(ctrl => {
-
+        list.forEach(ctrl => {
             switch (ctrl.controlType) {
                 case FormControlStatic.DropDownList.name:
                 case FormControlStatic.CheckBox.name:
@@ -61,10 +63,17 @@ export class FormService {
                         data[ctrl.controlName] = ctrl.value;
                     }
                     break;
+                case FormControlStatic.ControlContainer.name:
+                    break;
             }
 
-            if (ctrl.controlType === FormControlStatic.TextBox.name) {
+            if (ctrl.controlType === FormControlStatic.ControlContainer.name) {
 
+                if (ctrl.controlContainers.length > 0) {
+                    ctrl.controlContainers.forEach(c => {
+                        data[c.controlName] = this.getDataResult(c.controlList);
+                    })
+                }
             }
         });
 
@@ -127,6 +136,7 @@ export class FormService {
                 data.controlDescription = FormControlStatic.ControlContainer.description;
 
                 let container = new ConfigControlContainer();
+
                 container.wrappedWith = "div";
                 data.controlContainers = [];
                 data.controlContainers.push(container);

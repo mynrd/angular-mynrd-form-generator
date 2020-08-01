@@ -28,6 +28,7 @@ export class ConfigControlContainer {
     public controlList: FormControlModel[];
     public wrappedWith: string;
     public panelTitle: string;
+    public controlName: string;
     public panelDescription: string;
     public panelExpanded: boolean;
 

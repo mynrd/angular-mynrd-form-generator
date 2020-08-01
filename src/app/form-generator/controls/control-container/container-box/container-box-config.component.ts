@@ -17,7 +17,8 @@ export class ContainerBoxConfigComponent {
     wrappedWith: string,
     panelTitle: string,
     panelDescription: string,
-    panelExpanded: boolean
+    panelExpanded: boolean,
+    controlName: string
   }
 
   constructor(
@@ -29,6 +30,7 @@ export class ContainerBoxConfigComponent {
       panelTitle: data.panelTitle,
       panelDescription: data.panelDescription,
       panelExpanded: data.panelExpanded,
+      controlName: data.controlName,
     };
   }
 
@@ -37,6 +39,7 @@ export class ContainerBoxConfigComponent {
     this.data.panelTitle = this.tempItem.panelTitle;
     this.data.panelDescription = this.tempItem.panelDescription;
     this.data.panelExpanded = this.tempItem.panelExpanded;
+    this.data.controlName = this.tempItem.controlName;
     this.dialogRef.close();
   }
 
